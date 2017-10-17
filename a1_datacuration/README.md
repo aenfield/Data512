@@ -1,7 +1,7 @@
 # README: DATA 512, A1: Data curation
 
 ## Goal
-The goal of this project is to show that I can "demonstrate that [I] can follow best practices for open scientific research in designing and implementing your project, and make your project fully reproducible by others: from data collection to data analysis." I'll do this by pulling data for, wrangling, and analyzing data about the amount of monthly English Wikipedia traffic from January 1, 2008 through September 30, 2017. 
+The goal of this project is to "demonstrate that [I] can follow best practices for open scientific research in designing and implementing [my] project, and make [my] project fully reproducible by others: from data collection to data analysis." I'll do this by pulling data for, preparing/wrangling, and analyzing data about the amount of monthly English Wikipedia traffic from January 1, 2008 through September 30, 2017. 
 
 The instructions for this assignment are documented [on the course wiki](https://wiki.communitydata.cc/HCDS_(Fall_2017)/Assignments#Step_1:_Data_acquisition).
 
@@ -9,6 +9,11 @@ The instructions for this assignment are documented [on the course wiki](https:/
 ## License
 
 This code is licensed as described in the [LICENSE](LICENSE) file.
+
+
+## Implementation
+
+The implementation is in the [hcds-a1-data-curation.ipynb](hcds-a1-data-curation.ipynb) notebook.
 
 ## Data
 
@@ -54,7 +59,7 @@ https://wikimedia.org/api/rest_v1/metrics/pageviews/aggregate/en.wikipedia.org/d
 
 | Column      	      	  | Description |
 | ----------------------- | ----------- |
-| pagecount_all_views.    | Sum of the pagecount_desktop_views and pagecount_mobile_views values, for this month. |
+| pagecount_all_views     | Sum of the pagecount_desktop_views and pagecount_mobile_views values, for this month. |
 | pagecount_desktop_views | The number of page accesses from the Pagecounts API for the 'desktop-site' 'access-site' value, for this month.| 
 | pagecount_mobile_views  | The number of page accesses from the Pagecounts API for the 'mobile-site' 'access-site' value, for this month. As noted previously, this data starts in October 2014.|
 | pageview_all_views      | Sum of the pageview_desktop_views and pageview_mobile_views values, for this month. |
