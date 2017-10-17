@@ -5,6 +5,11 @@ The goal of this project is to show that I can "demonstrate that [I] can follow 
 
 The instructions for this assignment are documented [on the course wiki](https://wiki.communitydata.cc/HCDS_(Fall_2017)/Assignments#Step_1:_Data_acquisition).
 
+
+## License
+
+This code is licensed as described in the [LICENSE](LICENSE) file.
+
 ## Data
 
 I use two different APIs to cover the full range of time from 2008 to 2017. As of the time of writing, October 16, 2017, the data provided by both of these APIs is subject to the [Wikimedia terms of use](https://wikimediafoundation.org/wiki/Terms_of_Use/en) and is available under the [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) and [GFDL](https://www.gnu.org/copyleft/fdl.html) licenses.
@@ -49,14 +54,14 @@ https://wikimedia.org/api/rest_v1/metrics/pageviews/aggregate/en.wikipedia.org/d
 
 | Column      	      	  | Description |
 | ----------------------- | ----------- |
-| pagecount_all_views		| Sum of the pagecount_desktop_views and pagecount_mobile_views values, for this month. |
-| pagecount_desktop_views	| The number of page accesses from the Pagecounts API for the 'desktop-site' 'access-site' value, for this month.| 
+| pagecount_all_views.    | Sum of the pagecount_desktop_views and pagecount_mobile_views values, for this month. |
+| pagecount_desktop_views | The number of page accesses from the Pagecounts API for the 'desktop-site' 'access-site' value, for this month.| 
 | pagecount_mobile_views  | The number of page accesses from the Pagecounts API for the 'mobile-site' 'access-site' value, for this month. As noted previously, this data starts in October 2014.|
-| pageview_all_views	  | Sum of the pageview_desktop_views and pageview_mobile_views values, for this month. |
+| pageview_all_views      | Sum of the pageview_desktop_views and pageview_mobile_views values, for this month. |
 | pageview_desktop_views  | The number of page accesses from the Pageviews API for the 'desktop' 'access' value, for the 'user' 'agent' value, for this month. |
 | pageview_mobile_views   | The number of page accesses from the Pageviews API for the 'mobile-app' and 'mobile-web' 'access' values, for the 'user' 'agent' value, for this month.|
-| year					  | Four digit year for the counts in this row. |
-| month					  | Two digit month for the counts in this row. |
+| year                    | Four digit year for the counts in this row. |
+| month                   | Two digit month for the counts in this row. |
 
 
 
