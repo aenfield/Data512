@@ -15,7 +15,9 @@ This problem is often ameloriated by "trimming" the weights given to particular 
 The New York Times article [How One 19-Year-Old Illinois Man Is Distorting National Polling Averages][] describes this problem.  
  
 > Jill Darling, the survey director at the U.S.C. Center for Economic and Social Research, noted that they had decided not to “trim” the weights (that’s when a poll prevents one person from being weighted up by more than some amount, like five or 10) because the sample would otherwise underrepresent African-American and young voters.
+>
 > This makes sense. Gallup got itself into trouble for this reason in 2012: It trimmed its weights, and nonwhite voters were underrepresented.
+>
 > In general, the choice in “trimming” weights is between bias and variance in the results of the poll. If you trim the weights, your sample will be biased — it might not include enough of the voters who tend to be underrepresented. If you don’t trim the weights, a few heavily weighted respondents could have the power to sway the survey. The poll might be a little noisier, and the margin of error higher (note that the margin of error on the U.S.C./LAT poll for black voters surges every time the heavily weighted young black voter enters the survey)."
 
 TBD maybe - not sure it's needed, but could helpful to contrast with MRP? But perhaps the limitations above are enough - i.e., we don't need to go into detail about the specific approaches that 
