@@ -30,6 +30,11 @@ TBD describe MRP, with links to descriptions - at least one or a few papers, but
 
 TBD describe data sources
 
+- Huffington Pollster API (CC BY-NC-SA 3.0!!) http://elections.huffingtonpost.com/pollster/api/v2
+- Actual election results - Apache https://github.com/aaronhoffman/ParseNytElection2016, to produce https://drive.google.com/open?id=0BwgLvVq0rcS7Q2NjLXlNMTk0d00 per https://www.reddit.com/r/datasets/comments/5bzrda/election_polls_dataset/?st=j9ophiua&sh=181138f3
+- Census API wrapper for Python https://pypi.python.org/pypi/census, https://census.gov/data.html and https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml, for downloading, I think.  For ex, this has population breakdowns as of 2010, including race https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=DEC_10_DP_DPDP1&src=pt, and ok - public domain: https://ask.census.gov/prweb/PRServletCustom/YACFBFye-rFIz_FoGtyvDRUGg1Uzu5Mn*/!STANDARD?pyActivity=pyMobileSnapStart&ArticleListID=TAX_152_154
+- Voter turnout: https://www.census.gov/data/tables/time-series/demo/voting-and-registration/p20-580.html and http://www.electproject.org/home/voter-turnout/voter-turnout-data
+
 # Note on the limitations of requiring data to be in the repository
 
 TBD The rule, and what it gives (that you own the reproducibility). Downside: most data sources appear to be good with sharing their data and enabling people to use it, but balk (or at least don't make it easily possibly) for others to reproduce it. So, it's a trade off. It's fine for this class - we can just look harder or change what we do if we can't reproduce the data - but pragmatically I'm not sure the trade off would always be worth it.
