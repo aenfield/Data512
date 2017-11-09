@@ -20,20 +20,27 @@ The New York Times article [How One 19-Year-Old Illinois Man Is Distorting Natio
 >
 > In general, the choice in “trimming” weights is between bias and variance in the results of the poll. If you trim the weights, your sample will be biased — it might not include enough of the voters who tend to be underrepresented. If you don’t trim the weights, a few heavily weighted respondents could have the power to sway the survey. The poll might be a little noisier, and the margin of error higher (note that the margin of error on the U.S.C./LAT poll for black voters surges every time the heavily weighted young black voter enters the survey)."
 
-TBD maybe - not sure it's needed, but could helpful to contrast with MRP? But perhaps the limitations above are enough - i.e., we don't need to go into detail about the specific approaches that 
+While there are many techniques for adjusting non-representative samples - including propensity score matching - a relatively new technique, and the one I'd like to learn about and apply in this project, is called 'multilevel regression and poststratification'. As described in [Forecasting elections with non-representative polls][], the "central idea of MRP is to partition the data into thousands of demographic cells, estimate voter intent at the cell level using a [Bayesian] multilevel regression model, and finally aggregate the cell-level estimates in accordance with the target population’s demographic composition." As I understand it, this approach is well-suited to handle sparse "cells" - combinations of covariates that have small sample sizes, like the example in the article quoted above - because the use of Bayesian inference and shared priors combines data from multiple values and then uses this data proportionally more with small samples and less with large samples. 
 
-TBD depending on the decision in the prev TBD, if we're not going to go into detail we could at least - in one or two sentences - say that the other approaches are common ways for the how to do weighting, since we used the terms in the intro question and probably want to tie them into the more detailed description here.
+In terms of methodology, I plan to:
 
-TBD describe MRP, with links to descriptions - at least one or a few papers, but perhaps something shorter? Or the paper but pull out a quote from the paper saying
+1. Obtain information about the person for whom people plan to vote, along with demographic characteristics of the people answering the question, from opinion poll data.
+2. Obtain information about how often people with different demographic characteristics vote, and how the representation of these cells in the overall population, from exit poll or Census data.
+3. Investigate the distributions of the data obtained in #1 and #2 and determine the degree to which the polls are representative of the expected distributions for voters. If the polls _are_ representative, then adjust the poll data artificially to under-represent at least some cells.
+4. Perform multilevel regression and post stratification using the information from #1, #2, and #3.
+
+TBD say that going all the way to MRP might be too much. However, I know how to write code, how to use pandas, and know these well. I also know - at least to a degree - how to do Bayesian inference and models with PyMC, Stan, JAGS, AND I've read papers on MRP. 
+
+TBD If it is too much, my fall back plan is: TBD (find the data, understand the data - viz, numbers; perhaps do PSM or post-strat)
 
 # Data
 
-TBD describe data sources
+I plan to use some and possibly all of the following data sources:
 
-- Huffington Pollster API (CC BY-NC-SA 3.0!!) http://elections.huffingtonpost.com/pollster/api/v2
-- Actual election results - Apache https://github.com/aaronhoffman/ParseNytElection2016, to produce https://drive.google.com/open?id=0BwgLvVq0rcS7Q2NjLXlNMTk0d00 per https://www.reddit.com/r/datasets/comments/5bzrda/election_polls_dataset/?st=j9ophiua&sh=181138f3
-- Census API wrapper for Python https://pypi.python.org/pypi/census, https://census.gov/data.html and https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml, for downloading, I think.  For ex, this has population breakdowns as of 2010, including race https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=DEC_10_DP_DPDP1&src=pt, and ok - public domain: https://ask.census.gov/prweb/PRServletCustom/YACFBFye-rFIz_FoGtyvDRUGg1Uzu5Mn*/!STANDARD?pyActivity=pyMobileSnapStart&ArticleListID=TAX_152_154
+- Opinion poll data from many opinion polls [Huffington Pollster API](http://elections.huffingtonpost.com/pollster/api/v2), CC BY-NC-SA 3.0. 
+- Census data  API wrapper for Python https://pypi.python.org/pypi/census, https://census.gov/data.html and https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml, for downloading, I think.  For ex, this has population breakdowns as of 2010, including race https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=DEC_10_DP_DPDP1&src=pt, and ok - public domain: https://ask.census.gov/prweb/PRServletCustom/YACFBFye-rFIz_FoGtyvDRUGg1Uzu5Mn*/!STANDARD?pyActivity=pyMobileSnapStart&ArticleListID=TAX_152_154
 - Voter turnout: https://www.census.gov/data/tables/time-series/demo/voting-and-registration/p20-580.html and http://www.electproject.org/home/voter-turnout/voter-turnout-data
+- 2016 election results - https://github.com/aaronhoffman/ParseNytElection2016, to produce https://drive.google.com/open?id=0BwgLvVq0rcS7Q2NjLXlNMTk0d00 per https://www.reddit.com/r/datasets/comments/5bzrda/election_polls_dataset/?st=j9ophiua&sh=181138f3
 
 # Note on the limitations of requiring data to be in the repository
 
@@ -48,12 +55,7 @@ TBD add more?
 - TBD Political scientists and election junkies have studied polling and electoral predictions for centuries. I've just started. What obvious things am I missing?
 - TBD How to handle propensity vote, vs. eligibility. Don't want to weight by "past vote" per (the main article) and (the vote one)
 
-# What if 
-
-TBD say that going all the way to MRP might be too much. However, I know how to write code, how to use pandas, and know these well. I also know - at least to a degree - how to do Bayesian inference and models with PyMC, Stan, JAGS, AND I've read papers on MRP. 
-
-TBD If it is too much, my fall back plan is: TBD (find the data, understand the data - viz, numbers; perhaps do PSM or post-strat)
-
 
 
 [How One 19-Year-Old Illinois Man Is Distorting National Polling Averages]: https://www.nytimes.com/2016/10/13/upshot/how-one-19-year-old-illinois-man-is-distorting-national-polling-averages.html
+[Forecasting elections with non-representative polls]: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/forecasting-with-nonrepresentative-polls.pdf
