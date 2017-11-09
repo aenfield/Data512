@@ -37,18 +37,20 @@ I plan to use some and possibly all of the following data sources:
 
 - Opinion poll data from many opinion polls [Huffington Pollster API](http://elections.huffingtonpost.com/pollster/api/v2), CC BY-NC-SA 3.0. 
 - Census data
-	  - [API wrapper for Python](https://pypi.python.org/pypi/census)
-	  - [Census data navigator](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml). For example, [this](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=DEC_10_DP_DPDP1&src=pt) has has population breakdowns as of 2010, including race. [Public domain](https://ask.census.gov/prweb/PRServletCustom/YACFBFye-rFIz_FoGtyvDRUGg1Uzu5Mn*/!STANDARD?pyActivity=pyMobileSnapStart&ArticleListID=TAX_152_154)
-- [Voter turnout](https://www.census.gov/data/tables/time-series/demo/voting-and-registration/p20-580.html and http://www.electproject.org/home/voter-turnout/voter-turnout-data)
+
+	  - [API wrapper for Python](https://pypi.python.org/pypi/census).
+	  - [Census data navigator](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml). For example, [this](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=DEC_10_DP_DPDP1&src=pt) has has population breakdowns as of 2010, including race. Public domain, as the site (can't directly link) states "All U.S. Census Bureau materials, regardless of the media, are entirely in the public domain. There are no user fees, site licenses, or any special agreements etc for the public or private use, and or reuse of any census title. As tax funded product, it's all in the public record." 
+
+- Voter turnout. Per [the Census](https://www.census.gov/data/tables/time-series/demo/voting-and-registration/p20-580.html) and the [United States Elections Project](http://www.electproject.org/home/voter-turnout/voter-turnout-data), the latter licensed using CC BY 3.0.
 - 2016 election results - [code](https://github.com/aaronhoffman/ParseNytElection2016) and [data](https://drive.google.com/open?id=0BwgLvVq0rcS7Q2NjLXlNMTk0d00) per [this Reddit thread](https://www.reddit.com/r/datasets/comments/5bzrda/election_polls_dataset/?st=j9ophiua&sh=181138f3), Apache License 2.0. 
 
 # Note on the limitations of requiring data to be in the repository
 
-I found a lot of data sources that have information I'd like to use - for example, this set of [October 2016 survey data from the Pew Research Center](http://www.people-press.org/dataset/october-2016-political-survey). Most of the data sources appear to be good with sharing their data and enabling people to use it, but balk at letting others reproduce it (or at least don't make it easy), which we need to be able to do so that we can check the data in to GitHub. I understand some of the benefits - making the repo entirely self-contained and "owning" the reproducibility top-to-bottom is great. But, it's a trade off, since it _does_ exclude otherwise useful data. From my perspective it's good for this class - we can just look harder or change what we do if we can't copy/reproduce the data, and encouraging this level of sharing is good too - but pragmatically I'm not sure the trade off would always be worth it. 
+I found a lot of data sources that have information I'd like to use - for example, this set of [October 2016 survey data from the Pew Research Center](http://www.people-press.org/dataset/october-2016-political-survey). Most of the data sources appear to be good with sharing their data and enabling people to use it, but balk at letting others reproduce it (or at least don't make it easy), which we need to be able to do so that we can check the data in to GitHub. I understand some of the benefits - for example, making the repo entirely self-contained and "owning" the reproducibility top-to-bottom is great. But, it's a trade off, since it _does_ exclude otherwise useful data. From my perspective it's good for this class - we can just look harder or change what we do if we can't copy/reproduce the data, and encouraging this level of sharing is good too - but pragmatically I'm not sure the trade off would always be worth it. 
 
 # Questions
 
-Some questions I may need to answer as part of my work:
+Some questions I may need to answer as part of this work:
 
 - Political scientists and election junkies have studied polling and electoral predictions for centuries. I've just started. What obvious things am I missing?
 - How should I handle the propensity to vote compared to just being eligible to vote? Both articles above, as well as a number of other articles I have in my notes for this project, provide information about this question, but I don't (yet) know enough to answer it at this point.
