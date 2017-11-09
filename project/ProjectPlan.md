@@ -36,11 +36,7 @@ I'll note here that completely finishing a full MRP analysis may end up being to
 I plan to use some and possibly all of the following data sources:
 
 - Opinion poll data from many opinion polls [Huffington Pollster API](http://elections.huffingtonpost.com/pollster/api/v2), CC BY-NC-SA 3.0. 
-- Census data
-
-	  - [API wrapper for Python](https://pypi.python.org/pypi/census).
-	  - [Census data navigator](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml). For example, [this](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=DEC_10_DP_DPDP1&src=pt) has has population breakdowns as of 2010, including race. Public domain, as the site (can't directly link) states "All U.S. Census Bureau materials, regardless of the media, are entirely in the public domain. There are no user fees, site licenses, or any special agreements etc for the public or private use, and or reuse of any census title. As tax funded product, it's all in the public record." 
-
+- Census data. [API wrapper for Python](https://pypi.python.org/pypi/census). [Census data navigator](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml). For example, [this](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=DEC_10_DP_DPDP1&src=pt) has has population breakdowns as of 2010, including race. Public domain, as the site (can't directly link) states "All U.S. Census Bureau materials, regardless of the media, are entirely in the public domain. There are no user fees, site licenses, or any special agreements etc for the public or private use, and or reuse of any census title. As tax funded product, it's all in the public record." 
 - Voter turnout. Per [the Census](https://www.census.gov/data/tables/time-series/demo/voting-and-registration/p20-580.html) and the [United States Elections Project](http://www.electproject.org/home/voter-turnout/voter-turnout-data), the latter licensed using CC BY 3.0.
 - 2016 election results - [code](https://github.com/aaronhoffman/ParseNytElection2016) and [data](https://drive.google.com/open?id=0BwgLvVq0rcS7Q2NjLXlNMTk0d00) per [this Reddit thread](https://www.reddit.com/r/datasets/comments/5bzrda/election_polls_dataset/?st=j9ophiua&sh=181138f3), Apache License 2.0. 
 
