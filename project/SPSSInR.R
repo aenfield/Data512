@@ -1,3 +1,5 @@
-setwd('~/work/github/Data512/project')
+#setwd('~/work/github/Data512/project')
+setwd('~/OneDrive/Personal/School/Master\'s/DATA\ 512/Project/Oct16')
 library(foreign)
-d = read.spss('PewOct16public.sav', to.data.frame=TRUE)
+d = read.spss('Oct16 public.sav', to.data.frame=TRUE)
+write.csv(d, 'Oct16 public.csv')
