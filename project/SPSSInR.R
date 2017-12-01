@@ -11,7 +11,9 @@ convert_sav_to_csv <- function(workingdir, input_filename, output_filename_prefi
 }
 
 convert_sav_to_csv('~/OneDrive/Personal/School/Master\'s/DATA\ 512/Project/Oct16', 'Oct16 public.sav', 'Oct16 public')
+convert_sav_to_csv('~/OneDrive/Personal/School/Master\'s/DATA\ 512/Project', 'cps_00001.sav', 'cps_00001')
 convert_sav_to_csv('~/OneDrive/Personal/School/Master\'s/DATA\ 512/Project', 'cps_00002.sav', 'cps_00002')
 convert_sav_to_csv('~/OneDrive/Personal/School/Master\'s/DATA\ 512/Project', 'cps_00003.sav', 'cps_00003')
+convert_sav_to_csv('~/OneDrive/Personal/School/Master\'s/DATA\ 512/Project', 'cps_00004.sav', 'cps_00004')
 
 
