@@ -1,6 +1,6 @@
 # README
 ## Predicting Elections with "Mister P" (MRP, multi-level regression and post-stratification)
-## Data 512
+## Andrew Enfield, University of Washington Data 512 Autumn 2017
 
 # Abstract
 
