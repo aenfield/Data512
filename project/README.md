@@ -8,7 +8,7 @@ In this project I used Bayesian multi-level regression and post-stratification (
 
 **NOTE:** I'm new to this concept and PyMC3, and did this work without review. If you happen upon this project and see things I did incorrectly or can do better, please let me know - it'll help me continue to learn.
 
-## License
+# License
 
 This code is licensed as described in the [LICENSE](LICENSE) file. The data persisted as the mrp_cells.csv file is licensed using the [CC BY 2.5 license](https://creativecommons.org/licenses/by/2.5/). (The source data described below in the Data section is not included in this CC license, and is used under the terms described in that section.)
 
@@ -16,9 +16,9 @@ This code is licensed as described in the [LICENSE](LICENSE) file. The data pers
 
 This work uses data from the following sources:
 - Pew Research Center ["October 2016 Political Survey"](http://www.people-press.org/dataset/october-2016-political-survey), under the terms of use reproduced in the appendix below. I have "incorporate[d] limited portions of the [d]ata in [this] scholarly, research or academic publications" in the pew_poll.csv file, which contains a small subset of the columns in the original report, each of which represents demographic information and poll responses from a single person. The data is available in multiple formats, but not as a simple .csv file or files. I downloaded the data as an SPSS .sav file and used R to convert the content to a .csv that I then load from the notebook, as explained below in the Implementation section.
-- [IPUMS Current Population Survey](https://cps.ipums.org/cps/), under the agreement reproduced in the appendix below. I have "publish[ed] a subset of the data to meet journal requirements for accessing data related to a particular publication" in the cps_population.csv and cps_votes.csv files. The former contains cross-tabulated population data from the "IPUMS-CPS, ASEC 2016" data set; the latter contains information about how often people voted, from the "IPUMS-CPS, November 2016" monthly data set. Both files contain a row per person. (The license requests that I "supply [them] with the title and full citation for any publications, research reports, or educational materials making use of the data or documentation". I've tried to do this multiple times using the page at https://bibliography.ipums.org/user_submissions/new but always receive a "We're sorry, but something went wrong" error message. TODO keep trying and either update this or send them a mail w/ the detail and then say that I've done that here.) 
+- [IPUMS Current Population Survey](https://cps.ipums.org/cps/), under the agreement reproduced in the appendix below. I have included "a subset of the data to meet journal requirements for accessing data related to a particular publication" in the cps_population.csv and cps_votes.csv files. The former contains cross-tabulated population data from the "IPUMS-CPS, ASEC 2016" data set; the latter contains information about how often people voted, from the "IPUMS-CPS, November 2016" monthly data set. Both files contain a row per person. (The license requests that I "supply [IPUMS] with the title and full citation for any publications, research reports, or educational materials making use of the data or documentation". I've tried to do this multiple times using the page at https://bibliography.ipums.org/user_submissions/new but always receive a "We're sorry, but something went wrong" error message. TODO keep trying and either update this or send them a mail w/ the detail and then say that I've done that here.) 
 
-The cps_population.csv file contains these IPUMS CPS fields, from the "IPUMS-CPS, ASEC 2016" data set (with the description provided by IPUMS):
+I retrieved the following IPUMS CPS fields from the "IPUMS-CPS, ASEC 2016" data set (with the description provided by IPUMS):
 
 1. YEAR (Survey year)
 2. SERIAL (Household serial number)
@@ -37,7 +37,7 @@ The cps_population.csv file contains these IPUMS CPS fields, from the "IPUMS-CPS
 16. HISPAN (Hispanic origin)
 17. EDUC99 (Educational attainment, 1990)
 
-The cps_votes.csv file contains these IPUMS CPS fields, from the "IPUMS-CPS, November 2016" monthly data set (with the description provided by IPUMS)
+I retrieved the following IPUMS CPS fields from the "IPUMS-CPS, November 2016" monthly data set (with the description provided by IPUMS)
 
 1. YEAR (Survey year)
 2. SERIAL (Household serial number)
