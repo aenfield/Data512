@@ -15,15 +15,62 @@ This code is licensed as described in the [LICENSE](LICENSE) file. The data pers
 # Data
 
 This work uses data from the following sources:
-- Pew Research Center ["October 2016 Political Survey"](http://www.people-press.org/dataset/october-2016-political-survey), under the terms of use reproduced in the appendix below. I have "incorporate[d] limited portions of the [d]ata in [this] scholarly, research or academic publications" in the pew_poll.csv file, which contains a small subset of the columns in the original report, each of which represents demographic information and poll responses from a single person.
-- [IPUMS Current Population Survey](https://cps.ipums.org/cps/), under the agreement reproduced in the appendix below. I have "publish[ed] a subset of the data to meet journal requirements for accessing data related to a particular publication" in the cps_population.csv and cps_votes.csv files. The former contains cross-tabulated population data from the "IPUMS-CPS, ASEC 2016" data set; the latter contains information about how often people voted, from the "IPUMS-CPS, November 2016" monthly data set. Both files contain a row per person. (The license requests that I "supply [them] with the title and full citation for any publications, research reports, or educational materials making use of the data or documentation". I've tried to do this multiple times using the page at https://bibliography.ipums.org/user_submissions/new but always receive a "We're sorry, but something went wrong" error message. TODO keep trying and either update this or send them a mail w/ the detail and then say that I've done that here.)
+- Pew Research Center ["October 2016 Political Survey"](http://www.people-press.org/dataset/october-2016-political-survey), under the terms of use reproduced in the appendix below. I have "incorporate[d] limited portions of the [d]ata in [this] scholarly, research or academic publications" in the pew_poll.csv file, which contains a small subset of the columns in the original report, each of which represents demographic information and poll responses from a single person. The data is available in multiple formats, but not as a simple .csv file or files. I downloaded the data as an SPSS .sav file and used R to convert the content to a .csv that I then load from the notebook, as explained below in the Implementation section.
+- [IPUMS Current Population Survey](https://cps.ipums.org/cps/), under the agreement reproduced in the appendix below. I have "publish[ed] a subset of the data to meet journal requirements for accessing data related to a particular publication" in the cps_population.csv and cps_votes.csv files. The former contains cross-tabulated population data from the "IPUMS-CPS, ASEC 2016" data set; the latter contains information about how often people voted, from the "IPUMS-CPS, November 2016" monthly data set. Both files contain a row per person. (The license requests that I "supply [them] with the title and full citation for any publications, research reports, or educational materials making use of the data or documentation". I've tried to do this multiple times using the page at https://bibliography.ipums.org/user_submissions/new but always receive a "We're sorry, but something went wrong" error message. TODO keep trying and either update this or send them a mail w/ the detail and then say that I've done that here.) 
+
+The cps_population.csv file contains these IPUMS CPS fields, from the "IPUMS-CPS, ASEC 2016" data set (with the description provided by IPUMS):
+
+1. YEAR (Survey year)
+2. SERIAL (Household serial number)
+3. HWTSUPP (Household weight, Supplement) 
+4. CPSID (CPSID, household record)
+5. REGION (Region and division)
+6. STATEFIP (State (FIPS code))
+7. STATECENSUS (State (Census code))
+8. ASECFLAG (Flag for ASEC)
+9. MONTH (Month)
+10. PERNUM (Person number in sample unit) 11. CPSIDP (CPSID, person record)
+12. WTSUPP (Supplement Weight)
+13. AGE (Age)
+14. SEX (Sex)
+15. RACE (Race)
+16. HISPAN (Hispanic origin)
+17. EDUC99 (Educational attainment, 1990)
+
+The cps_votes.csv file contains these IPUMS CPS fields, from the "IPUMS-CPS, November 2016" monthly data set (with the description provided by IPUMS)
+
+1. YEAR (Survey year)
+2. SERIAL (Household serial number)
+3. HWTFINL (Household weight, Basic Monthly) 
+4. CPSID (CPSID, household record)
+5. STATEFIP (State (FIPS code))
+6. MONTH (Month)
+7. PERNUM (Person number in sample unit)
+8. CPSIDP (CPSID, person record)
+9. WTFINL (Final Basic Weight)
+10. AGE (Age)
+11. SEX (Sex)
+12. RACE (Race)
+13. HISPAN (Hispanic origin)
+14. EDUC99 (Educational attainment, 1990)
+15. VOTED (Voted for the most recent November election)
+16. VOREG (Registered for the most recent November election)
+
+
 
 # Implementation
 
 To reproduce the analysis, run the code in the [MRP_Presidential_Election_2016.ipynb](MRP_Presidential_Election_2016.ipynb) notebook.
 
+The notebook uses the subset of data provided in this repo - the notebook works in a standalone fashion and doesn't require that you retrieve any data from the original sources. 
 
-# Fields in the output data file
+However, if you do want to generate the data used by the notebook from the original sources, run the SPSSInR.R script. This script does three things: 
+
+1. It uses the full-featured SPSS import code in R's 'foreign' package to load data from the source SPSS .sav files. This data includes both rows, as well as column titles and 'labels' for each column that provide a longer description of that field. I wasn't able to find similar functionality native to Python or in a well-supported Python library.
+2. Filters the source data to just the subset of columns the notebook requires.
+3. Writes out the subset of the data as .csv files.
+
+# Fields in the generated output data file
 
 I've persisted a copy of the final data set generated by the previously mentioned notebook in the repo as [mrp_cell.csv](mrp_cell.csv). This file has the following fields.
 
