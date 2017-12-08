@@ -6,7 +6,7 @@
 
 In this project I used Bayesian multi-level regression and post-stratification (MRP), and Python and [PyMC3](https://github.com/pymc-devs/pymc3) to adjust an unrepresentative sample of election preferences and predict the outcome of the 2016 US Presidential election. My results don't match the survey from which I used the raw data, possibly because I haven't used enough predictors (in the interest of simplicity). Nonetheless, the code and explanation show an attempt at learning and applying MRP using a language and MCMC framework that I haven't found used for such a purpose before. 
 
-**NOTE:** I'm new to this concept and PyMC3, and did this work without review. If you happen upon this project and see things I did incorrectly or can do better, please let me know - it'll help me continue to learn.
+**NOTE:** I'm new to this concept and PyMC3, and did this work without review. I also spent a relatively minimal amount of time on this project, as it was just a portion of the work for a particular class. If you happen upon this project and see things I did incorrectly or can do better, please let me know - it'll help me continue to learn. There's a non-exhaustive list of many things that I could do to improve this work in the Discussion section at the end of the [MRP_Presidential_Election_2016.ipynb](MRP_Presidential_Election_2016.ipynb) notebook.
 
 # License
 
@@ -15,7 +15,7 @@ This code is licensed as described in the [LICENSE](LICENSE) file. The data pers
 # Data
 
 This work uses data from the following sources:
-- Pew Research Center ["October 2016 Political Survey"](http://www.people-press.org/dataset/october-2016-political-survey), under the terms of use reproduced in the appendix below. I have "incorporate[d] limited portions of the [d]ata in [this] scholarly, research or academic publications" in the pew_poll.csv file, which contains a small subset of the columns in the original report, each of which represents demographic information and poll responses from a single person. The data is available in multiple formats, but not as a simple .csv file or files. I downloaded the data as an SPSS .sav file and used R to convert the content to a .csv that I then load from the notebook, as explained below in the Implementation section.
+- Pew Research Center ["October 2016 Political Survey"](http://www.people-press.org/dataset/october-2016-political-survey), under the terms of use reproduced in the appendix below. I have "incorporate[d] limited portions of the [d]ata in [this] scholarly, research or academic publications" in the pew_poll.csv file, which contains a small subset of the columns in the original report, each of which represents demographic information and poll responses from a single person. The original data is available in multiple formats, but not as a simple .csv file or files. I downloaded the data as an SPSS .sav file and used R to convert the content to a .csv that I then load from the notebook, as explained below in the Implementation section.
 - [IPUMS Current Population Survey](https://cps.ipums.org/cps/), under the agreement reproduced in the appendix below. I have included "a subset of the data to meet journal requirements for accessing data related to a particular publication" in the cps_population.csv and cps_votes.csv files. The former contains cross-tabulated population data from the "IPUMS-CPS, ASEC 2016" data set; the latter contains information about how often people voted, from the "IPUMS-CPS, November 2016" monthly data set. Both files contain a row per person. (The license requests that I "supply [IPUMS] with the title and full citation for any publications, research reports, or educational materials making use of the data or documentation". I've tried to do this multiple times using the page at https://bibliography.ipums.org/user_submissions/new but always receive a "We're sorry, but something went wrong" error message. In order to help the group and fulfill the terms of use, I went ahead and sent a mail to the IPUMS team with information about the error and with all of the requested citation information.) 
 
 I retrieved the following IPUMS CPS fields from the "IPUMS-CPS, ASEC 2016" data set (with the description provided by IPUMS):
@@ -66,13 +66,13 @@ The notebook uses the subset of data provided in this repo - the notebook works 
 
 However, if you do want to generate the data used by the notebook from the original sources, run the SPSSInR.R script. This script does three things: 
 
-1. It uses the full-featured SPSS import code in R's 'foreign' package to load data from the source SPSS .sav files. This data includes both rows, as well as column titles and 'labels' for each column that provide a longer description of that field. I wasn't able to find similar functionality native to Python or in a well-supported Python library.
+1. It uses the full-featured SPSS import code in R's 'foreign' package to load data from the source SPSS .sav files. This data includes rows, as well as column titles and 'labels' for each column that provide a longer description of that field. I used R because I wasn't able to find similar functionality native to Python or in a well-supported Python library.
 2. Filters the source data to just the subset of columns the notebook requires.
 3. Writes out the subset of the data as .csv files.
 
 # Fields in the generated output data file
 
-I've persisted a copy of the final data set generated by the previously mentioned notebook in the repo as [mrp_cell.csv](mrp_cell.csv). Each row in this file is a single cell with a unique combination of values for the sex, racecmb, and state fields. The file has the following fields.
+I've persisted a copy of the final data set generated by the previously mentioned notebook in the repo as [mrp_cells.csv](mrp_cells.csv). Each row in this file is a single cell with a unique combination of values for the sex, racecmb, and state fields. The file has the following fields.
 
 | Column      	      	  | Description |
 | ----------------------- | ----------- |
@@ -92,7 +92,7 @@ I've persisted a copy of the final data set generated by the previously mentione
 | est_population_voted     | The estimated population that voted in the last election, based on multiplying 'proportion' and 'voted_prop'. |
 | votes_adj_clinton    | The votes for Clinton, using 'est_population_voted' and 'trump_prob'. |
 | votes_adj_trump     | The votes for Trump, using 'est_population_voted' and 'trump_prob'. |
-| lr_prob     | Probability of Trump vote for this cell, from a simple OLS logistic regressino model. |
+| lr_prob     | Probability of Trump vote for this cell, from a simple OLS logistic regression model. |
 | lr_votes_clinton     | Assuming everyone votes (again, bad assumption), the votes for Clinton based on the value of 'lr_prob'. |
 | lr_votes_trump     | Assuming everyone votes, the votes for Trump based on the value of 'lr_prob'. |
 
